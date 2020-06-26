@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import info.chirikualii.newsapi_coroutine.data.repository.HeadlineRepo
-import info.chirikualii.newsapi_coroutine.utils.StateViewModel
+import info.chirikualii.newsapi_coroutine.utils.mvvm.StateViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

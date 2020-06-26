@@ -1,4 +1,4 @@
-package info.chirikualii.newsapi_coroutine.utils
+package info.chirikualii.newsapi_coroutine.utils.mvvm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
