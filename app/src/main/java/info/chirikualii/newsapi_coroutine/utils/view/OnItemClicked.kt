@@ -1,5 +1,6 @@
 package info.chirikualii.newsapi_coroutine.utils.view
 
+import info.chirikualii.newsapi_coroutine.data.local.ArticleEnitity
 import info.chirikualii.newsapi_coroutine.data.remote.response.Article
 
 
@@ -10,5 +11,5 @@ import info.chirikualii.newsapi_coroutine.data.remote.response.Article
 
 interface OnItemClicked {
 
-    fun onArticleClicked(article: Article){}
+    fun onArticleClicked(article: ArticleEnitity){}
 }

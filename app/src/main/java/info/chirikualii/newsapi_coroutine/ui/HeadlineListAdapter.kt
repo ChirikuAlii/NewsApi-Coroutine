@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import info.chirikualii.newsapi_coroutine.R
+import info.chirikualii.newsapi_coroutine.data.local.ArticleEnitity
 import info.chirikualii.newsapi_coroutine.data.remote.response.Article
 import info.chirikualii.newsapi_coroutine.utils.timeMillisToDateTime
 import info.chirikualii.newsapi_coroutine.utils.view.OnItemClicked
@@ -22,13 +23,13 @@ import java.time.Instant
  */
 class HeadlineListAdapter(val onItemClicked: OnItemClicked) : RecyclerView.Adapter<HeadlineListAdapter.HeadlineHolder>(){
 
-    var items : ArrayList<Article> = arrayListOf()
-    var listDataFiltered : ArrayList<Article> = arrayListOf()
+    var items : ArrayList<ArticleEnitity> = arrayListOf()
+    var listDataFiltered : ArrayList<ArticleEnitity> = arrayListOf()
 
     class HeadlineHolder(view: View) : RecyclerView.ViewHolder(view)
 
 
-    fun addList(listData :ArrayList<Article>){
+    fun addList(listData :ArrayList<ArticleEnitity>){
         val oldList = items
         val diffResult : DiffUtil.DiffResult =DiffUtil.calculateDiff(HeadlineListDiffCallback(
             oldList,listData
@@ -66,8 +67,8 @@ class HeadlineListAdapter(val onItemClicked: OnItemClicked) : RecyclerView.Adapt
     }
 
     class HeadlineListDiffCallback(
-        var oldList : ArrayList<Article>,
-        var newList : ArrayList<Article>
+        var oldList : ArrayList<ArticleEnitity>,
+        var newList : ArrayList<ArticleEnitity>
     ):DiffUtil.Callback(){
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
             return (oldList[oldItemPosition].title == newList[newItemPosition].title)

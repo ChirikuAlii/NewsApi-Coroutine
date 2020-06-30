@@ -2,6 +2,7 @@ package info.chirikualii.newsapi_coroutine
 
 import android.app.Application
 import info.chirikualii.newsapi_coroutine.di.appModule
+import info.chirikualii.newsapi_coroutine.di.dataModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -18,7 +19,7 @@ class ApplicationLoader :Application() {
         startKoin {
             androidContext(this@ApplicationLoader)
             androidLogger()
-            modules(listOf(appModule))
+            modules(listOf(appModule, dataModule))
         }
     }
 }

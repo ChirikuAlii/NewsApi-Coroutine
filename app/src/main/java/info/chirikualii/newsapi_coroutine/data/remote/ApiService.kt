@@ -14,5 +14,5 @@ import retrofit2.http.GET
 interface ApiService{
 
     @GET("top-headlines?country=us&apiKey=452a8b968c514facb39fd8fff27381bb")
-    suspend fun getHeadlineNews() :HeadlineResponse
+    suspend fun getHeadlineNews() :Response<HeadlineResponse>
 }

@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import info.chirikualii.newsapi_coroutine.R
+import info.chirikualii.newsapi_coroutine.data.local.ArticleEnitity
 import info.chirikualii.newsapi_coroutine.data.remote.response.Article
 import info.chirikualii.newsapi_coroutine.ui.detailHeadline.DetailHeadlineActivity
 import info.chirikualii.newsapi_coroutine.utils.view.OnItemClicked
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() , Observer<MainState> ,OnItemClicked {
         when (state) {
 
             is MainState.OnShowHeadline -> {
-                val arraylist = arrayListOf<Article>()
+                val arraylist = arrayListOf<ArticleEnitity>()
                 arraylist.addAll(state.listData)
                 headlineListAdapter.addList(arraylist)
                 Log.d(MainActivity::class.java.simpleName,"load article ${Gson().toJsonTree(state.listData)}")
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() , Observer<MainState> ,OnItemClicked {
         }
     }
 
-    override fun onArticleClicked(article: Article) {
+    override fun onArticleClicked(article: ArticleEnitity) {
         super.onArticleClicked(article)
 
         val articleJson = Gson().toJson(article)
